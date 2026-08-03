@@ -1,0 +1,9 @@
+namespace TicketBoard.Api.Models;
+
+public class Ticket
+{
+    public int Id { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Category { get; set; } = string.Empty;
+    public string Priority { get; set; } = string.Empty;
+}
