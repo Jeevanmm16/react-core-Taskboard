@@ -1,9 +1,9 @@
-import React from 'react';
 import TicketCard from './TicketCard';
+import { Ticket, Priority } from '../types/ticket';
 
 // Hardcoded ticket data — stays at module scope in TicketList.
 // App does not own this data; it only owns the filter criteria.
-const tickets = [
+const tickets: Ticket[] = [
   {
     id: 1,
     title: 'Payment Failed',
@@ -24,9 +24,14 @@ const tickets = [
   },
 ];
 
+interface TicketListProps {
+  searchTerm: string;
+  selectedPriority: Priority;
+}
+
 // Accepts filter criteria from App via props.
 // Applies a two-stage filter pipeline and renders matching TicketCards.
-function TicketList({ searchTerm, selectedPriority }) {
+function TicketList({ searchTerm, selectedPriority }: TicketListProps) {
   // Normalize once before filtering:
   // trim() removes accidental leading/trailing whitespace,
   // toLowerCase() makes the match case-insensitive.

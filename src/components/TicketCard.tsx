@@ -1,6 +1,10 @@
-import React from 'react';
+import { Ticket } from '../types/ticket';
 
-function TicketCard({ ticket }) {
+interface TicketCardProps {
+  ticket: Ticket;
+}
+
+function TicketCard({ ticket }: TicketCardProps) {
   if (!ticket) return null;
   const { title, category, priority } = ticket;
   const priorityClass = `priority-${priority.toLowerCase()}`;
